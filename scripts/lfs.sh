@@ -25,3 +25,14 @@ mkdir -pv $LFS/var
 case $(uname -m) in
 	x86_64) mkdir -pv $LFS/lib64 ;;
 esac
+
+
+# copy all my scripts to ${LFS}/sources/
+# move to ${LFS}
+cp -rf * "${LFS}/sources"
+cd "${LFS}/sources"
+
+export PATH="${LFS}/tools/bin:${PATH}"
+
+# Start downloading the packages
+source ./scripts/download.sh
