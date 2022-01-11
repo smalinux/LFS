@@ -1,7 +1,7 @@
 #!/bin/bash
 	# you probable will need to create new user? username = lfs
 
-export LFS=/mnt/lfs/
+export LFS=/mnt/lfs
 # TGT=target
 # you probable need to change that later if you want to build OS for beaglebone
 # LFS_TGT=arch-vendor-linux-gnu

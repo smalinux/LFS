@@ -36,3 +36,9 @@ export PATH="${LFS}/tools/bin:${PATH}"
 
 # Start downloading the packages
 source ./scripts/download.sh
+
+# Compile these packages: chapter5: toolchain
+for package in binutils gcc linux glibc libstdc++; do
+	echo -n ""
+	#source ./scripts/packageinstall.sh 5 $package
+done
