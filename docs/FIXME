@@ -1,0 +1,27 @@
+after chapter 5 & 6 and before entering chroot make sure you have this file: `ld-linux-x86-64.so.2`
+use:
+# F ld-linux-x86-64.so.2
+# sudo cp -a /mnt/lfs/usr/lib/ld-linux-x86-64.so.2 /mnt/lfs/lib/
+Ref: https://unix.stackexchange.com/a/614049/265591
+
+
+also:
+# sudo cp -a ./usr/bin/bash bin/
+
+Search point: Google:
+chroot: failed to run command ‘/usr/bin/env
+
+Search point: Google:
+chroot break the systems
+
+Search point: Google:
+How to break out of a chroot() jail
+
+thanks to:
+ldd /bin/bash
+
+* link all /usr/bin to just /bin:
+$ ln /mnt/lfs/usr/bin/* /mnt/lfs/bin/
+
+* rename the network name to NAME="eth0"
+$ cat /mnt/lfs/etc/udev/rules.d/70-persistent-net.rules | grep NAME
