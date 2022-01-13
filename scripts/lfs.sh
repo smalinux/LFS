@@ -51,3 +51,17 @@ for package in m4 ncurses bash coreutils diffutils file findutils gawk \
 done
 
 
+chmod ugo+x scripts/preparechroot.sh
+chmod ugo+x scripts/insidechroot.sh
+
+sudo ./scripts/preparechroot.sh ${LFS}
+echo "ENTERING CHROOT ENVIRONMENT..."
+sleep 3
+
+sudo chroot "$LFS" /usr/bin/env -i \
+	HOME=/root \
+	TERM="$TERM" \
+	PS1='(lfs chroot) \u:\w\$ ' \
+	PATH=/usr/bin:/usr/sbin \
+	/usr/bin/bash --login +h -c "/sources/scripts/insidechroot.sh"
+	#/usr/bin/bash --login +h
