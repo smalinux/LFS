@@ -53,15 +53,26 @@ done
 
 chmod ugo+x scripts/preparechroot.sh
 chmod ugo+x scripts/insidechroot.sh
+chmod ugo+x scripts/insidechroot2.sh
 
 sudo ./scripts/preparechroot.sh ${LFS}
-echo "ENTERING CHROOT ENVIRONMENT..."
-sleep 3
 
-sudo chroot "$LFS" /usr/bin/env -i \
-	HOME=/root \
-	TERM="$TERM" \
-	PS1='(lfs chroot) \u:\w\$ ' \
-	PATH=/usr/bin:/usr/sbin \
-	/usr/bin/bash --login +h -c "/sources/scripts/insidechroot.sh"
-	#/usr/bin/bash --login +h
+for script in "/sources/scripts/insidechroot.sh" \
+	"sources/scripts/insidechroot2.sh"; do
+
+	echo "RUNNING ${script} CHROOT ENVIRONMENT..."
+	sleep 3
+	sudo chroot "$LFS" /usr/bin/env -i \
+		HOME=/root \
+		TERM="$TERM" \
+		PS1='(lfs chroot) \u:\w\$ ' \
+		PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/var/lib/snapd/snap/bin:/home/smalinux/.local/bin \
+		/usr/local/bin/bash --login +h -c ${script}
+done
+
+
+# chpater7. Cleanup
+sudo umount $LFS/dev{/pts,}
+sudo umount $LFS/{sys,proc,run}
+exit
+
