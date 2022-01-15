@@ -57,9 +57,12 @@ sudo cp -a /mnt/lfs/usr/bin/bash /mnt/lfs/bin/
 chmod ugo+x scripts/preparechroot.sh
 chmod ugo+x scripts/insidechroot.sh
 chmod ugo+x scripts/insidechroot2.sh
+chmod ugo+x scripts/teardownchroot.sh
 
 sudo ./scripts/preparechroot.sh ${LFS}
 
+# sudo ./scripts/chroot_bash.sh ${LFS} -c insidechroot.sh
+# sudo ./scripts/chroot_bash.sh ${LFS} -c insidechroot2.sh
 for script in "/sources/scripts/insidechroot.sh" \
 	"sources/scripts/insidechroot2.sh"; do
 
@@ -74,8 +77,5 @@ for script in "/sources/scripts/insidechroot.sh" \
 done
 
 
-# chpater7. Cleanup
-sudo umount $LFS/dev{/pts,}
-sudo umount $LFS/{sys,proc,run}
-exit
+sudo ./scripts/teardownchroot.sh ${LFS} ${USER} $(id -gn)
 
