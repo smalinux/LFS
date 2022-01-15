@@ -50,6 +50,9 @@ for package in m4 ncurses bash coreutils diffutils file findutils gawk \
 	#source ./scripts/packageinstall.sh 6 $package
 done
 
+# FIXUP
+sudo cp -a /mnt/lfs/usr/lib/ld-linux-x86-64.so.2 /mnt/lfs/lib/
+sudo cp -a /mnt/lfs/usr/bin/bash /mnt/lfs/bin/
 
 chmod ugo+x scripts/preparechroot.sh
 chmod ugo+x scripts/insidechroot.sh
