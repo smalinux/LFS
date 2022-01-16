@@ -24,8 +24,8 @@ umount $LFS/run
 umount $LFS/sys
 umount $LFS/proc
 
-umount $LFS/dev/pts
-umount  $LFS/dev
+sudo umount $LFS/dev/pts
+sudo umount  $LFS/dev
 
 # chown of the world
 chown -R $DIROWNER:$DIRGROUP $LFS/tools
