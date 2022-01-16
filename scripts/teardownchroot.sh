@@ -12,16 +12,17 @@ fi
 
 
 if [ -h $LFS/dev/shm ]; then
-	rm -rf $lFS/$(readlink $LFS/dev/shm)
+	echo -n ""
+	#rm -rf $lFS/$(readlink $LFS/dev/shm)
 fi
+
+#rm -f $LFS/dev/console
+#rm -f $LFS/dev/null
 
 #
 umount $LFS/run
 umount $LFS/sys
 umount $LFS/proc
-
-rm -f $LFS/dev/console
-rm -f $LFS/dev/null
 
 umount $LFS/dev/pts
 umount  $LFS/dev
