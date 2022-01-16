@@ -9,6 +9,9 @@ if [ ${LFS} == "" ]; then
 	exit 1 # FIXME write a useful message!
 fi
 
+# copy all scripts before entering chroot
+cp -rf * "${LFS}/sources"
+
 chmod ugo+x scripts/preparechroot.sh
 sudo ./scripts/preparechroot.sh ${LFS}
 
