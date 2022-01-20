@@ -58,6 +58,7 @@ chmod ugo+x scripts/preparechroot.sh
 chmod ugo+x scripts/insidechroot.sh
 chmod ugo+x scripts/insidechroot2.sh
 chmod ugo+x scripts/insidechroot3.sh
+chmod ugo+x scripts/insidechroot4.sh
 chmod ugo+x scripts/teardownchroot.sh
 
 sudo ./scripts/preparechroot.sh ${LFS}
@@ -66,7 +67,8 @@ sudo ./scripts/preparechroot.sh ${LFS}
 # sudo ./scripts/chroot_bash.sh ${LFS} -c insidechroot2.sh
 for script in "/sources/scripts/insidechroot.sh" \
 	"sources/scripts/insidechroot2.sh" \
-	"sources/scripts/insidechroot3.sh"; do # FIXME delete me
+	"sources/scripts/insidechroot3.sh" \
+	"sources/scripts/insidechroot4.sh"; do
 
 	echo "RUNNING ${script} CHROOT ENVIRONMENT..."
 	sleep 3
