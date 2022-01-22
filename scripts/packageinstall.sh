@@ -19,6 +19,11 @@ cat ./data/packages.csv | grep -i "^$PACKAGE;" | grep -iv "\.patch;" | while rea
 	#echo MD5SUM $MD5SUM
 	#echo CHECKFILE $CHECKFILE
 
+	# very important line -_-
+	if [ -d ${DIRNAME} ]; then
+		rm -rf ${DIRNAME}
+	fi
+
 	mkdir -pv "$DIRNAME"
 	echo "Extracing ${CHECKFILE}..."
 	tar -xf "$CHECKFILE" -C "$DIRNAME"

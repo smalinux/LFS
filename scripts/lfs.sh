@@ -42,3 +42,12 @@ for package in binutils gcc linux glibc libstdc++; do
 	echo -n ""
 	#source ./scripts/packageinstall.sh 5 $package
 done
+
+# Chapter 6.
+for package in m4 ncurses bash coreutils diffutils file findutils gawk \
+	grep gzip make patch sed tar xz binutils gcc xz; do
+	echo -n ""
+	#source ./scripts/packageinstall.sh 6 $package
+done
+
+
