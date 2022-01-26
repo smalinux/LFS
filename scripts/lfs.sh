@@ -59,6 +59,7 @@ chmod ugo+x scripts/insidechroot.sh
 chmod ugo+x scripts/insidechroot2.sh
 chmod ugo+x scripts/insidechroot3.sh
 chmod ugo+x scripts/insidechroot4.sh
+chmod ugo+x scripts/insidechroot5.sh
 chmod ugo+x scripts/teardownchroot.sh
 
 sudo ./scripts/preparechroot.sh ${LFS}
@@ -68,7 +69,8 @@ sudo ./scripts/preparechroot.sh ${LFS}
 for script in "/sources/scripts/insidechroot.sh" \
 	"sources/scripts/insidechroot2.sh" \
 	"sources/scripts/insidechroot3.sh" \
-	"sources/scripts/insidechroot4.sh"; do
+	"sources/scripts/insidechroot4.sh" \
+	"sources/scripts/insidechroot5.sh"; do
 
 	echo "RUNNING ${script} CHROOT ENVIRONMENT..."
 	sleep 3
